@@ -1,0 +1,287 @@
+/* Reset and general styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0; /* Light gray background */
+  color: #333; /* Dark gray text color */
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header styles */
+header {
+  background-color: transparent; /* Transparent background */
+  color: #fff; /* White text color */
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center; /* Center align navigation links */
+  align-items: center;
+}
+
+.hamburger-menu {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  cursor: pointer;
+  z-index: 1100; /* Ensure hamburger is above other content */
+}
+
+.hamburger-menu .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Dark background */
+  padding: 20px 0;
+  text-align: center;
+  z-index: 1050; /* Ensure nav links are above content */
+  transform: translateY(100%); /* Initial position off-screen */
+  transition: transform 0.3s ease; /* Transition for sliding animation */
+}
+
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-links.active {
+  display: flex; /* Show nav links when active */
+  height: 100vh; /* Full height */
+  overflow-y: auto; /* Enable scrolling if needed */
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 10px 0;
+}
+
+.nav-links li a {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #FFD700; /* Gold on hover */
+}
+
+/* Section styles */
+.section {
+  padding: 80px 0;
+  min-height: 100vh; /* Ensure minimum height of 100vh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.home {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%),
+    url('home.jpeg') center center/cover no-repeat;
+  color: #fff; /* White text color */
+}
+
+.about {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%),
+    url('about.webp') center center/cover no-repeat;
+  color: #fff;
+}
+
+.music {
+  background-color: #ffc299; /* Light orange background */
+}
+
+.events {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%),
+    url('events.jpg') center center/cover no-repeat;
+  color: #fff;
+}
+
+.contact {
+  background-color: #ffe6cc; /* Light yellow background */
+}
+
+/* Timeline styles */
+.timeline {
+    position: relative;
+    margin: 50px 0;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 20px;
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-date {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  background-color: grey;
+  border-radius: 8px;
+  color: white;
+}
+
+.event-date span {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.event-date .day {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.event-date .month {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.event-date .year {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.event-details {
+    flex: 2; /* Take up two-thirds of the width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.event-place {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Additional styling */
+.section {
+    padding: 80px 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  clear: both;
+}
+
+/* Responsive design */
+@media (min-width: 769px) {
+  .hamburger-menu {
+      display: none; /* Hide hamburger menu for desktop */
+  }
+
+  header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+  }
+
+  .nav-links {
+      display: flex !important; /* Ensure nav links are visible on desktop */
+      position: relative;
+      top: -65px;
+      background-color: transparent; /* Transparent background for desktop */
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      width: auto;
+      flex-direction: row;
+  }
+
+  .nav-links li {
+      margin: 0 15px;
+  }
+}
