@@ -31,8 +31,14 @@ header {
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-family: 'Franky', sans-serif;
+  font-size: 4rem;
   text-align: center;
+  text-shadow: 2px 2px 0px #5F8670,
+    3px 3px 0px #FF9800,
+    4px 4px 0px #B80000,
+    5px 5px 0px #820300,
+    6px 6px 10px rgba(0, 0, 0, 0.5);
 }
 
 nav {
@@ -43,12 +49,15 @@ nav {
 
 .hamburger-menu {
   position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: block;
-  cursor: pointer;
-  z-index: 1100; /* Ensure hamburger is above other content */
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    cursor: pointer;
+    z-index: 1100;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    padding: 10px;
 }
 
 .hamburger-menu .bar {
@@ -113,7 +122,7 @@ nav {
 
 .nav-links li a {
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -134,7 +143,7 @@ nav {
 
 .home {
   background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%),
-    url('home.jpeg') center center/cover no-repeat;
+    url('left-corner.webp') center center/cover no-repeat;
   color: #fff; /* White text color */
 }
 
@@ -269,10 +278,14 @@ footer {
       flex-direction: row;
   }
 
+  header h1 {
+      margin-left: 2rem;
+  }
+
   .nav-links {
       display: flex !important; /* Ensure nav links are visible on desktop */
       position: relative;
-      top: -65px;
+      top: -85px;
       background-color: transparent; /* Transparent background for desktop */
       justify-content: center;
       align-items: center;
@@ -284,4 +297,12 @@ footer {
   .nav-links li {
       margin: 0 15px;
   }
+}
+
+/* Fonts */
+@font-face {
+  font-family: 'Franky';
+  src: url('Franky.otf') format('opentype'); /* Fallback for older browsers */
+  font-weight: normal;
+  font-style: normal;
 }
