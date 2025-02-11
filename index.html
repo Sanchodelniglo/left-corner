@@ -1,118 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Left Corner - Rocksteady/Reggae Band</title>
+    <title>Left Corner - Groupe Reggae/Ska de Bordeaux</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 data-en="Left Corner" data-fr="Left Corner">Left Corner</h1>
-            <nav>
-                <div class="hamburger-menu">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home" data-en="Home" data-fr="Accueil">Home</a></li>
-                    <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
-                    <li><a href="#music" data-en="Music" data-fr="Musique">Music</a></li>
-                    <li><a href="#events" data-en="Events" data-fr="Événements">Events</a></li>
-                    <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
-                    <li><a href="#" id="lang-switcher" data-en="FR" data-fr="EN">FR</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#latest-release">Nouvel Album</a></li>
+            <li><a href="#tour">Concerts</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <section id="home" class="section home">
-        <div class="container">
-            <h2 data-en="Welcome to Left Corner" data-fr="Bienvenue à Left Corner">Welcome to Left Corner</h2>
-            <p data-en="Rocksteady and reggae vibes straight from Bordeaux." data-fr="Des vibrations rocksteady et reggae directement de Bordeaux.">Rocksteady and reggae vibes straight from Bordeaux.</p>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Left Corner</h1>
+            <p>Reggae • Ska • Rocksteady</p>
+            <div class="location-tag">Bordeaux, France</div>
         </div>
     </section>
 
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 data-en="About Us" data-fr="À propos de nous">About Us</h2>
-            <p data-en="Left Corner is a rocksteady/reggae band based in Bordeaux, known for their vintage sound and energetic performances." data-fr="Left Corner est un groupe de rocksteady/reggae basé à Bordeaux, connu pour son son vintage et ses performances énergiques.">Left Corner is a rocksteady/reggae band based in Bordeaux, known for their vintage sound and energetic performances.</p>
-        </div>
+    <section id="latest-release" class="latest-release">
+        <h2 class="section-title">Nouvel Album</h2>
+        <div class="album-cover"></div>
+        <h3>Skanking à Bordeaux</h3>
+        <p>Disponible sur toutes les plateformes</p>
     </section>
 
-    <section id="music" class="section music">
-        <div class="container">
-            <h2 data-en="Our Music" data-fr="Notre musique">Our Music</h2>
-            <div class="music-player">
-                <!-- Embed your music player or list of tracks here -->
-            </div>
-        </div>
-    </section>
-
-    <section id="events" class="section events">
-        <div class="container">
-            <h2 class="section-title" data-en="Events" data-fr="Événements">Events</h2>
+    <section id="tour" class="tour-dates">
+        <h2 class="section-title">Dates de Concerts</h2>
+        <div class="timeline-container">
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="event-date" data-en-date="25 May 2024" data-fr-date="25 Mai 2024">
-                            <span class="day" data-en="25" data-fr="25">25</span>
-                            <span class="month" data-en="May" data-fr="Mai">May</span>
-                            <span class="year" data-en="2024" data-fr="2024">2024</span>
-                        </div>
-                        <div class="event-details">
-                            <h3 class="event-title" data-en="Summer Festival" data-fr="Festival d'été">Summer Festival</h3>
-                            <p class="event-place" data-en="Bordeaux, France" data-fr="Bordeaux, France">Bordeaux, France</p>
-                        </div>
-                    </div>
+                <div class="tour-date">
+                    <h3>15 Février 2025</h3>
+                    <p>Rock School Barbey</p>
+                    <p>Bordeaux</p>
+                    <button class="buy-ticket">Billets</button>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="event-date" data-en-date="15 Sep 2024" data-fr-date="15 Sep 2024">
-                            <span class="day" data-en="15" data-fr="15">15</span>
-                            <span class="month" data-en="Sep" data-fr="Sep">Sep</span>
-                            <span class="year" data-en="2024" data-fr="2024">2024</span>
-                        </div>
-                        <div class="event-details">
-                            <h3 class="event-title" data-en="European Tour Kickoff" data-fr="Lancement de la tournée européenne">European Tour Kickoff</h3>
-                            <p class="event-place" data-en="London, UK" data-fr="Londres, Royaume-Uni">London, UK</p>
-                        </div>
-                    </div>
+                <div class="tour-date">
+                    <h3>20 Février 2025</h3>
+                    <p>Le Bikini</p>
+                    <p>Toulouse</p>
+                    <button class="buy-ticket">Billets</button>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="event-date" data-en-date="10 Apr 2025" data-fr-date="10 Avr 2025">
-                            <span class="day" data-en="10" data-fr="10">10</span>
-                            <span class="month" data-en="Apr" data-fr="Avr">Apr</span>
-                            <span class="year" data-en="2025" data-fr="2025">2025</span>
-                        </div>
-                        <div class="event-details">
-                            <h3 class="event-title" data-en="North America Tour Finale" data-fr="Finale de la tournée en Amérique du Nord">North America Tour Finale</h3>
-                            <p class="event-place" data-en="New York, USA" data-fr="New York, États-Unis">New York, USA</p>
-                        </div>
-                    </div>
+                <div class="tour-date">
+                    <h3>25 Février 2025</h3>
+                    <p>La Cigale</p>
+                    <p>Paris</p>
+                    <button class="buy-ticket">Billets</button>
                 </div>
-                <!-- Add more timeline items as needed -->
+                <div class="tour-date">
+                    <h3>1 Mars 2025</h3>
+                    <p>L'Aéronef</p>
+                    <p>Lille</p>
+                    <button class="buy-ticket">Billets</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 data-en="Contact Us" data-fr="Contactez-nous">Contact Us</h2>
-            <p data-en="Email: contact@leftcornerband.com" data-fr="Email : contact@leftcornerband.com">Email: contact@leftcornerband.com</p>
-            <p data-en="Phone: +33 6 12 34 56 78" data-fr="Téléphone : +33 6 12 34 56 78">Phone: +33 6 12 34 56 78</p>
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contactez-nous</h2>
+        <p>Suivez le groove!</p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook">📱</a>
+            <a href="#" aria-label="Twitter">📸</a>
+            <a href="#" aria-label="Instagram">🎵</a>
         </div>
     </section>
-
-    <footer>
-        <div class="container">
-            <p data-en="&copy; 2024 Left Corner. All rights reserved." data-fr="&copy; 2024 Left Corner. Tous droits réservés.">&copy; 2024 Left Corner. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
