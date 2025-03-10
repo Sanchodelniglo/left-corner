@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --vintage-brown: #8B4513;
+  --vintage-cream: #F5DEB3;
+  --vintage-orange-dark: #CD853F;
+  --vintage-orange-light: #ff9900;
+  --vintage-red: #8B3A3A;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--vintage-cream);
+}
