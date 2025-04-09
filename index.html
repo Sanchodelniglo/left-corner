@@ -1,78 +1,192 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Left Corner - Groupe Reggae/Ska de Bordeaux</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="javascript.js" defer></script>
+    <title>Left Corner | Ska Rocksteady Reggae from Bordeaux</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#latest-release">Nouvel Album</a></li>
-            <li><a href="#tour">Concerts</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <!-- Header -->
+    <header id="home">
+        <div class="header-content">
+            <h1 class="band-name">Left Corner</h1>
+            <p class="tagline">Ska · Rocksteady · Reggae · Bordeaux</p>
+            <a href="#tracks" class="track-play">Listen Now <i class="fas fa-play"></i></a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="container nav-content">
+            <a href="#home" class="logo">Left Corner</a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#tracks">Tracks</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Left Corner</h1>
-            <p>Reggae • Ska • Rocksteady</p>
-            <div class="location-tag">Bordeaux, France</div>
-        </div>
-    </section>
-
-    <section id="latest-release" class="latest-release">
-        <h2 class="section-title">Nouvel Album</h2>
-        <div class="album-cover"></div>
-        <h3>Skanking à Bordeaux</h3>
-        <p>Disponible sur toutes les plateformes</p>
-    </section>
-
-    <section id="tour" class="tour-dates">
-        <h2 class="section-title">Dates de Concerts</h2>
-        <div class="timeline-container">
-            <div class="timeline">
-                <div class="tour-date">
-                    <h3>15 Février 2025</h3>
-                    <p>Rock School Barbey</p>
-                    <p>Bordeaux</p>
-                    <button class="buy-ticket">Billets</button>
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Left Corner brings the authentic sounds of Jamaica to the streets of Bordeaux. With our unique blend of traditional ska, rocksteady, and reggae, we create a vibrant musical experience that pays homage to the golden era of Jamaican music while adding our own French twist.</p>
+                    <p>Formed in 2018, our collective of passionate musicians has been sharing the infectious rhythms and soulful melodies that defined the sound of Jamaica in the 60s and 70s. Our mission is simple: to make you dance, feel good, and connect with the rich musical heritage that continues to inspire generations worldwide.</p>
+                    <p>From Kingston to Bordeaux, Left Corner delivers an energetic live show that transports audiences to the heyday of Studio One and Treasure Isle. Whether you're a longtime fan of the genre or discovering these sounds for the first time, our music will move your feet and lift your spirits.</p>
                 </div>
-                <div class="tour-date">
-                    <h3>20 Février 2025</h3>
-                    <p>Le Bikini</p>
-                    <p>Toulouse</p>
-                    <button class="buy-ticket">Billets</button>
-                </div>
-                <div class="tour-date">
-                    <h3>25 Février 2025</h3>
-                    <p>La Cigale</p>
-                    <p>Paris</p>
-                    <button class="buy-ticket">Billets</button>
-                </div>
-                <div class="tour-date">
-                    <h3>1 Mars 2025</h3>
-                    <p>L'Aéronef</p>
-                    <p>Lille</p>
-                    <button class="buy-ticket">Billets</button>
+                <div class="about-image">
+                    <img src="./img/about.webp" alt="Left Corner Band">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2 class="section-title">Contactez-nous</h2>
-        <p>Suivez le groove!</p>
-        <div class="social-links">
-            <a href="#" aria-label="Facebook">📱</a>
-            <a href="#" aria-label="Twitter">📸</a>
-            <a href="#" aria-label="Instagram">🎵</a>
+    <!-- Tracks -->
+    <section id="tracks">
+        <div class="container">
+            <h2>Our Tracks</h2>
+            <div class="track-container">
+                <div class="track-card">
+                  <iframe width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2036343016&color=%23f2b33d&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/leftcorner-band" title="Leftcorner.band" target="_blank" style="color: #cccccc; text-decoration: none;">Leftcorner.band</a> · <a href="https://soundcloud.com/leftcorner-band/smile" title="Smile" target="_blank" style="color: #cccccc; text-decoration: none;">Smile</a></div>
+                </div>
+                <div class="track-card">
+                  <iframe width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2036342460&color=%23f2b33d&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/leftcorner-band" title="Leftcorner.band" target="_blank" style="color: #cccccc; text-decoration: none;">Leftcorner.band</a> · <a href="https://soundcloud.com/leftcorner-band/santa-burrito" title="Santa burrito" target="_blank" style="color: #cccccc; text-decoration: none;">Santa burrito</a></div>
+                </div>
+                <div class="track-card">
+                  <iframe width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2036315428&color=%23f2b33d&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/leftcorner-band" title="Leftcorner.band" target="_blank" style="color: #cccccc; text-decoration: none;">Leftcorner.band</a> · <a href="https://soundcloud.com/leftcorner-band/burning" title="Burning" target="_blank" style="color: #cccccc; text-decoration: none;">Burning</a></div>
+                </div>
+                <div class="track-card">
+                  <iframe width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2036315420&color=%23f2b33d&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/leftcorner-band" title="Leftcorner.band" target="_blank" style="color: #cccccc; text-decoration: none;">Leftcorner.band</a> · <a href="https://soundcloud.com/leftcorner-band/sailor-man" title="Sailor Man" target="_blank" style="color: #cccccc; text-decoration: none;">Sailor Man</a></div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://soundcloud.com/leftcorner-band" target="_blank" class="track-play">More on SoundCloud <i class="fab fa-soundcloud"></i></a>
+            </div>
         </div>
     </section>
+
+    <!-- Events -->
+    <section id="events">
+        <div class="container">
+            <h2>Upcoming Events</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <p class="event-date">May 15, 2025</p>
+                        <h3>I-Boat, Bordeaux</h3>
+                        <p class="event-location">Quai Armand Lalande, 33300 Bordeaux</p>
+                        <p>Our monthly ska night returns with special guests from London.</p>
+                        <a href="#" class="event-ticket">Get Tickets</a>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <p class="event-date">June 7, 2025</p>
+                        <h3>Reggae Sun Ska Festival</h3>
+                        <p class="event-location">Vertheuil, Gironde</p>
+                        <p>Proud to be part of this year's lineup at one of France's biggest reggae festivals.</p>
+                        <a href="#" class="event-ticket">Get Tickets</a>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <p class="event-date">July 22, 2025</p>
+                        <h3>Rock School Barbey</h3>
+                        <p class="event-location">18 Cours Barbey, 33800 Bordeaux</p>
+                        <p>Album release party for our debut LP "Corner Stone".</p>
+                        <a href="#" class="event-ticket">Get Tickets</a>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <p class="event-date">August 10, 2025</p>
+                        <h3>Dub Corner Session</h3>
+                        <p class="event-location">Darwin Ecosystem, Bordeaux</p>
+                        <p>Special dub session with our full sound system setup.</p>
+                        <a href="#" class="event-ticket">Get Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-slide active">
+                    <img src="/api/placeholder/1200/600" alt="Left Corner Live">
+                </div>
+                <div class="gallery-slide">
+                    <img src="/api/placeholder/1200/600" alt="Left Corner Studio Session">
+                </div>
+                <div class="gallery-slide">
+                    <img src="/api/placeholder/1200/600" alt="Left Corner Band Members">
+                </div>
+                <div class="gallery-slide">
+                    <img src="/api/placeholder/1200/600" alt="Left Corner Festival Performance">
+                </div>
+                <button class="gallery-prev" id="galleryPrev"><i class="fas fa-chevron-left"></i></button>
+                <button class="gallery-next" id="galleryNext"><i class="fas fa-chevron-right"></i></button>
+                <div class="gallery-nav" id="galleryNav"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <p>For bookings and inquiries: <strong>booking@leftcorner.com</strong></p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://soundcloud.com/leftcorner-band" title="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" title="Spotify"><i class="fab fa-spotify"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Left Corner. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./javascript.js"></script>
 </body>
 </html>
