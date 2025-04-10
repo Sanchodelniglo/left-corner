@@ -1,0 +1,10 @@
+<script>start("/Users/romaingrossard/Downloads/favicon/");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("apple-touch-icon.png","apple-touch-icon.png",0,40875,"39.9 kB",1744269776,"10/04/2025 09:22:56");</script>
+<script>addRow("favicon","favicon",0,0,"0 B",1744277198,"10/04/2025 11:26:38");</script>
+<script>addRow("favicon-96x96.png","favicon-96x96.png",0,13645,"13.3 kB",1744269776,"10/04/2025 09:22:56");</script>
+<script>addRow("favicon.ico","favicon.ico",0,15086,"14.7 kB",1744269776,"10/04/2025 09:22:56");</script>
+<script>addRow("favicon.svg","favicon.svg",0,489640,"478 kB",1744269776,"10/04/2025 09:22:56");</script>
+<script>addRow("site.webmanifest","site.webmanifest",0,443,"443 B",1744269776,"10/04/2025 09:22:56");</script>
+<script>addRow("web-app-manifest-192x192.png","web-app-manifest-192x192.png",0,45709,"44.6 kB",1744269776,"10/04/2025 09:22:56");</script>
+<script>addRow("web-app-manifest-512x512.png","web-app-manifest-512x512.png",0,251195,"245 kB",1744269776,"10/04/2025 09:22:56");</script>
