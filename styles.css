@@ -2,7 +2,7 @@
   --primary: #bf4d28; /* Vintage rust/orange */
   --secondary: #f2b33d; /* Vintage golden yellow */
   --accent: #77331c; /* Vintage green */
-  --dark: rgb(69, 34, 43); /* Rich deep brown/black */
+  --dark: rgb(70, 29, 15); /* Rich deep brown/black */
   --light: #F7EFD2; /* Vintage off-white/cream */
   --transition: all 0.3s ease;
 }
@@ -95,6 +95,7 @@ header {
 }
 
 .tagline {
+  color: var(--light);
   font-size: 1.5rem;
   margin-bottom: 2rem;
   font-style: italic;
@@ -188,13 +189,13 @@ nav {
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(69, 34, 43, 0.1);
+  box-shadow: 0 5px 15px rgba(70, 29, 15, 0.1);
   transition: var(--transition);
 }
 
 .track-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(69, 34, 43, 0.2);
+  box-shadow: 0 15px 30px rgba(70, 29, 15, 0.2);
 }
 
 .track-info {
@@ -375,7 +376,7 @@ nav {
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background-color: rgba(69, 34, 43, 0.5);
+  background-color: rgba(70, 29, 15, 0.5);
   color: white;
   border: none;
   border-radius: 50%;
@@ -386,7 +387,7 @@ nav {
 }
 
 .gallery-prev:hover, .gallery-next:hover {
-  background-color: rgba(69, 34, 43, 0.8);
+  background-color: rgba(70, 29, 15, 0.8);
 }
 
 .gallery-prev {
@@ -545,6 +546,44 @@ footer {
 
   .menu-toggle {
       display: block;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+  }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 18px;
+    width: 24px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .hamburger-icon span {
+    height: 2px;
+    width: 100%;
+    background-color: var(--light);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Animation */
+  .menu-toggle[aria-expanded="true"] .hamburger-icon span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] .hamburger-icon span:nth-child(3) {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] .hamburger-icon span:nth-child(4) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   .gallery-container {
