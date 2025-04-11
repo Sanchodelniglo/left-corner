@@ -107,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Close mobile menu if open
             navLinks.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
 
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
