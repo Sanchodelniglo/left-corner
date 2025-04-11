@@ -101,6 +101,58 @@ header {
   font-style: italic;
 }
 
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+}
+
+.scroll-arrow {
+  width: 22px;
+  height: 22px;
+  border: solid;
+  border-width: 0 4px 4px 0;
+  border-radius: 5px;
+  display: inline-block;
+  transform: rotate(45deg);
+  margin: 6px 0;
+  border-radius: 1px;
+}
+
+.arrow-1 {
+  animation: colorFlow 1.5s infinite ease-in-out;
+  animation-delay: 0s;
+}
+
+@keyframes colorFlow {
+  0% {
+    border-color: var(--light);
+  }
+  25% {
+    border-color: var(--secondary);
+  }
+  50% {
+    border-color: var(--primary);
+  }
+  75% {
+    border-color: var(--accent);
+  }
+  100% {
+    border-color: var(--light);
+  }
+}
+
 /* Navigation */
 nav {
   background-color: var(--accent);
@@ -120,7 +172,6 @@ nav {
 .logo img {
   position: absolute;
   top: 12px;
-  left: 24px;
   width: 86px;
   border: 4px solid var(--light);
   border-radius: 50%;
@@ -321,7 +372,7 @@ nav {
 /* Gallery */
 .gallery-container {
   position: relative;
-  height: 500px;
+  height: 700px;
   margin: 2rem 0;
   overflow: hidden;
   border-radius: 10px;
@@ -521,6 +572,10 @@ footer {
       font-size: 2.5rem;
   }
 
+  h2 {
+      font-size: 1.5rem;
+  }
+
   .band-name {
       font-size: 3.5rem;
   }
@@ -600,14 +655,18 @@ footer {
     transform: translateY(-8px) rotate(-45deg);
   }
 
+  section {
+      padding: 2rem 0;
+  }
+
   .gallery-container {
-      height: 350px;
+      height: 240px;
   }
 }
 
 @media (max-width: 576px) {
   .band-name {
-      font-size: 2.5rem;
+      font-size: 3.5rem;
   }
 
   .track-container {
