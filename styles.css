@@ -544,6 +544,13 @@ textarea {
   transform: translateY(-5px);
 }
 
+.thanks-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: bold;
+}
+
 /* Footer */
 footer {
   background-color: var(--dark);
