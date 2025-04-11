@@ -76,7 +76,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle, rgba(242, 179, 61, 0.2), rgba(191, 77, 40, 0.5)), url('./img/IMG_0194.jpg') center/cover no-repeat;
+  background: radial-gradient(circle, rgba(242, 179, 61, 0.2), rgba(191, 77, 40, 0.5)), url('./img/header.jpg') center/cover no-repeat;
   color: white;
   text-align: center;
   position: relative;
@@ -99,6 +99,22 @@ header {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   font-style: italic;
+}
+
+.header-content .track-play {
+  background-color: var(--accent);
+  color: var(--light);
+  border: 2px solid var(--light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  text-decoration: none;
+  margin-top: 1rem;
 }
 
 .scroll-indicator {
