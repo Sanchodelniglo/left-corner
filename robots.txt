@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Allow all pages to be crawled
+Allow: /index.html
+Allow: /styles.css
+Allow: /javascript.js
+Allow: /img/
+Allow: /favicon/
+
+# Set crawl delay to avoid overloading the server
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://leftcorner.fr/sitemap.xml
