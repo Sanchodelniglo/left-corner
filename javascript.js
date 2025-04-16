@@ -49,20 +49,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Next slide
     function nextSlide() {
+        clearInterval(slideInterval); // Clear existing interval
         currentSlide = (currentSlide + 1) % slides.length;
         updateSlides();
+        if (!isPaused) { // Only restart interval if not paused
+            slideInterval = setInterval(nextSlide, 5000);
+        }
     }
 
     // Previous slide
     function prevSlide() {
+        clearInterval(slideInterval); // Clear existing interval
         currentSlide = (currentSlide - 1 + slides.length) % slides.length;
         updateSlides();
+        if (!isPaused) { // Only restart interval if not paused
+            slideInterval = setInterval(nextSlide, 5000);
+        }
     }
 
     // Go to specific slide
     function goToSlide(index) {
+        clearInterval(slideInterval); // Clear existing interval
         currentSlide = index;
         updateSlides();
+        if (!isPaused) { // Only restart interval if not paused
+            slideInterval = setInterval(nextSlide, 5000);
+        }
     }
 
     // Update slides display
@@ -79,16 +91,18 @@ document.addEventListener("DOMContentLoaded", function () {
     prevBtn.addEventListener('click', prevSlide);
     nextBtn.addEventListener('click', nextSlide);
 
-    // Auto slide
+    // Track pause state
+    let isPaused = false;
     let slideInterval = setInterval(nextSlide, 5000);
 
     // Pause on hover
     const galleryContainer = document.querySelector('.gallery-container');
     galleryContainer.addEventListener('mouseenter', () => {
+        isPaused = true;
         clearInterval(slideInterval);
     });
-
     galleryContainer.addEventListener('mouseleave', () => {
+        isPaused = false;
         slideInterval = setInterval(nextSlide, 5000);
     });
 
