@@ -125,6 +125,29 @@ document.addEventListener("DOMContentLoaded", function () {
     counter.textContent = `${currentSlide + 1} / ${modalSlides.length}`;
   }
 
+  // Create an Intersection Observer
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          // If the element is in the viewport
+          if (entry.isIntersecting) {
+              // Add the 'visible' class
+              entry.target.classList.add('visible');
+              // Stop observing the element once it's visible
+              observer.unobserve(entry.target);
+          }
+      });
+  }, {
+      // Options:
+      root: null, // viewport
+      threshold: 0.15, // trigger when at least 15% of the element is visible
+      rootMargin: '0px 0px -50px 0px' // trigger slightly before the element enters the viewport
+  });
+
+  // Start observing each gallery item
+  galleryItems.forEach(item => {
+      observer.observe(item);
+  });
+
   // // Form submission (mock)
   // const contactForm = document.querySelector('.contact-form');
   // contactForm.addEventListener('submit', function (e) {

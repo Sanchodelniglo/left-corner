@@ -410,10 +410,16 @@ nav {
 }
 
 .gallery-item {
-  position: relative;
   overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.5s ease-in-out;
+}
+
+.gallery-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .gallery-item img {
@@ -421,7 +427,7 @@ nav {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .gallery-item img:hover {
