@@ -31,80 +31,81 @@ document.addEventListener("DOMContentLoaded", function () {
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
-    // Gallery carousel
-    const slides = document.querySelectorAll('.gallery-slide');
-    const prevBtn = document.getElementById('galleryPrev');
-    const nextBtn = document.getElementById('galleryNext');
-    const dotNav = document.getElementById('galleryNav');
+    // Gallery modal functionality
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const modal = document.getElementById('galleryModal');
+    const modalSlides = document.querySelectorAll('.modal-slide');
+    const closeBtn = document.querySelector('.close');
+    const prevBtn = document.querySelector('.modal-prev');
+    const nextBtn = document.querySelector('.modal-next');
+    const counter = document.querySelector('.modal-counter');
     let currentSlide = 0;
 
-    // Create dots
-    slides.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('gallery-dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(index));
-        dotNav.appendChild(dot);
+    // Open modal and show clicked image
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            modal.style.display = 'block';
+            showSlide(index);
+        });
+    });
+
+    // Close modal
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Close on click outside of image
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
     });
 
     // Next slide
-    function nextSlide() {
-        clearInterval(slideInterval); // Clear existing interval
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlides();
-        if (!isPaused) { // Only restart interval if not paused
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-    }
+    nextBtn.addEventListener('click', () => {
+        showSlide(currentSlide + 1);
+    });
 
     // Previous slide
-    function prevSlide() {
-        clearInterval(slideInterval); // Clear existing interval
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlides();
-        if (!isPaused) { // Only restart interval if not paused
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-    }
+    prevBtn.addEventListener('click', () => {
+        showSlide(currentSlide - 1);
+    });
 
-    // Go to specific slide
-    function goToSlide(index) {
-        clearInterval(slideInterval); // Clear existing interval
-        currentSlide = index;
-        updateSlides();
-        if (!isPaused) { // Only restart interval if not paused
-            slideInterval = setInterval(nextSlide, 5000);
+    // Key navigation
+    document.addEventListener('keydown', (e) => {
+        if (modal.style.display === 'block') {
+            if (e.key === 'ArrowRight') {
+                showSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft') {
+                showSlide(currentSlide - 1);
+            } else if (e.key === 'Escape') {
+                modal.style.display = 'none';
+            }
         }
-    }
+    });
 
-    // Update slides display
-    function updateSlides() {
-        slides.forEach((slide, index) => {
+    // Show slide function
+    function showSlide(n) {
+        // Loop back to first/last slide
+        if (n >= modalSlides.length) {
+            currentSlide = 0;
+        } else if (n < 0) {
+            currentSlide = modalSlides.length - 1;
+        } else {
+            currentSlide = n;
+        }
+
+        // Hide all slides
+        modalSlides.forEach(slide => {
             slide.classList.remove('active');
-            dotNav.children[index].classList.remove('active');
         });
-        slides[currentSlide].classList.add('active');
-        dotNav.children[currentSlide].classList.add('active');
+
+        // Show current slide
+        modalSlides[currentSlide].classList.add('active');
+
+        // Update counter
+        counter.textContent = `${currentSlide + 1} / ${modalSlides.length}`;
     }
-
-    // Event listeners
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
-
-    // Track pause state
-    let isPaused = false;
-    let slideInterval = setInterval(nextSlide, 5000);
-
-    // Pause on hover
-    const galleryContainer = document.querySelector('.gallery-container');
-    galleryContainer.addEventListener('mouseenter', () => {
-        isPaused = true;
-        clearInterval(slideInterval);
-    });
-    galleryContainer.addEventListener('mouseleave', () => {
-        isPaused = false;
-        slideInterval = setInterval(nextSlide, 5000);
-    });
 
     // // Form submission (mock)
     // const contactForm = document.querySelector('.contact-form');

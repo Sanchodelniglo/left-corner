@@ -181,81 +181,48 @@
     <section id="gallery">
       <div class="container">
         <h2>Left Corner Galerie Photo</h2>
-        <div class="gallery-container">
-          <div class="gallery-slide active">
-            <img src="./img/events.webp"
-              alt="Left Corner à la MAC3"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/about.webp"
-              alt="Left Corner avec son public"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/la-ferme-des-filles.jpg"
-              alt="Left Corner à la ferme des filles"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/la-ferme-des-filles-2.jpg"
-              alt="Left Corner sur scène à la ferme des filles"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/chahuts.jpg"
-              alt="Projecteur de Chahuts"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/Gu.png"
-              alt="Gu à la MAC3"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/chahuts-2.jpg"
-              alt="Left Corner à Chahuts"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/pj.jpg"
-              alt="PJ a la MAC3"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/Ju.png"
-              alt="Ju à Ayguemortes-les-graves"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/choirs.png"
-              alt="Left Corner section cuivre aux choeurs"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/David.png"
-              alt="David à Ayguemortes-les-graves"
-              width="1200" height="600" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="./img/Bru.png"
-              alt="Bru à la MAC3"
-              width="1200" height="600" loading="lazy">
-          </div>
 
-          <div class="gallery-slide">
-            <img src="./img/Chip.png"
-              alt="Chippo à la MAC3"
-              width="1200" height="600" loading="lazy">
+        <div class="gallery-mosaic">
+          <!-- Images with different sizes -->
+          <div class="gallery-item large">
+            <img src="./img/events.webp" alt="Left Corner à la MAC3" loading="lazy">
           </div>
-          <button class="gallery-prev" id="galleryPrev"
-            aria-label="Previous image"><i class="fas fa-chevron-left"
-              aria-hidden="true"></i></button>
-          <button class="gallery-next" id="galleryNext"
-            aria-label="Next image"><i class="fas fa-chevron-right"
-              aria-hidden="true"></i></button>
-          <div class="gallery-nav" id="galleryNav"
-            aria-label="Gallery navigation"></div>
+          <div class="gallery-item">
+            <img src="./img/about.webp" alt="Left Corner avec son public" loading="lazy">
+          </div>
+          <div class="gallery-item tall">
+            <img src="./img/la-ferme-des-filles.jpg" alt="Left Corner à la ferme des filles" loading="lazy">
+          </div>
+          <div class="gallery-item wide">
+            <img src="./img/la-ferme-des-filles-2.jpg" alt="Left Corner sur scène à la ferme des filles" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="./img/chahuts.jpg" alt="Projecteur de Chahuts" loading="lazy">
+          </div>
+          <div class="gallery-item tall">
+            <img src="./img/Gu.png" alt="Gu à la MAC3" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="./img/chahuts-2.jpg" alt="Left Corner à Chahuts" loading="lazy">
+          </div>
+          <div class="gallery-item wide">
+            <img src="./img/pj.jpg" alt="PJ a la MAC3" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="./img/Ju.png" alt="Ju à Ayguemortes-les-graves" loading="lazy">
+          </div>
+          <div class="gallery-item large">
+            <img src="./img/choirs.png" alt="Left Corner section cuivre aux choeurs" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="./img/David.png" alt="David à Ayguemortes-les-graves" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="./img/Bru.png" alt="Bru à la MAC3" loading="lazy">
+          </div>
+          <div class="gallery-item wide">
+            <img src="./img/Chip.png" alt="Chippo à la MAC3" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
@@ -323,5 +290,58 @@
         <p>Pour ceux qui connaissent ...</p>
       </div>
     </footer>
+
+    <!-- Modal for fullscreen view -->
+    <div id="galleryModal" class="modal">
+      <span class="close">&times;</span>
+      <div class="modal-content">
+        <div class="modal-slide active">
+          <img src="./img/events.webp" alt="Left Corner à la MAC3" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/about.webp" alt="Left Corner avec son public" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/la-ferme-des-filles.jpg" alt="Left Corner à la ferme des filles" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/la-ferme-des-filles-2.jpg" alt="Left Corner sur scène à la ferme des filles" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/chahuts.jpg" alt="Projecteur de Chahuts" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/Gu.png" alt="Gu à la MAC3" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/chahuts-2.jpg" alt="Left Corner à Chahuts" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/pj.jpg" alt="PJ a la MAC3" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/Ju.png" alt="Ju à Ayguemortes-les-graves" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/choirs.png" alt="Left Corner section cuivre aux choeurs" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/David.png" alt="David à Ayguemortes-les-graves" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/Bru.png" alt="Bru à la MAC3" loading="lazy">
+        </div>
+        <div class="modal-slide">
+          <img src="./img/Chip.png" alt="Chippo à la MAC3" loading="lazy">
+        </div>
+        <button class="modal-prev" aria-label="Previous image">
+          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="modal-next" aria-label="Next image">
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <div class="modal-counter">1 / 13</div>
+      </div>
+    </div>
   </body>
 </html>
