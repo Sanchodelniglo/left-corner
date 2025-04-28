@@ -150,32 +150,31 @@ header {
   border-radius: 5px;
   display: inline-block;
   transform: rotate(45deg);
-  margin: 6px 0;
   border-radius: 1px;
 }
 
 .arrow-1 {
-  animation: colorFlow 1.5s infinite ease-in-out;
-  animation-delay: 0s;
+  animation: colorFlow 1s ease infinite;
+}
+
+.arrow-2 {
+  animation: colorFlow 1s ease-in-out infinite;
+  animation-delay: 0.33s;
 }
 
 @keyframes colorFlow {
   0% {
     border-color: var(--light);
   }
-
   25% {
     border-color: var(--secondary);
   }
-
   50% {
     border-color: var(--primary);
   }
-
   75% {
     border-color: var(--accent);
   }
-
   100% {
     border-color: var(--light);
   }
