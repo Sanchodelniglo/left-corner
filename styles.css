@@ -292,7 +292,7 @@ nav {
 }
 
 .track-play {
-  background-color: var(--primary);
+  background-color: var(--accent);
   color: var(--light);
   border: none;
   padding: 0.75rem 1.5rem;
@@ -606,7 +606,7 @@ textarea {
 }
 
 .thanks-link {
-  color: var(--primary);
+  color: var(--accent);
   text-decoration: none;
   transition: var(--transition);
   font-weight: bold;
