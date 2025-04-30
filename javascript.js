@@ -1,3 +1,29 @@
+// defer loading of embeded music player
+function loadSoundCloud(button) {
+  const container = button.closest('.soundcloud-embed');
+  const trackId = container.dataset.trackId;
+  const artistName = container.dataset.artist || ""; // Get artist name from data attribute
+  const trackTitle = container.dataset.title || ""; // Get track title from data attribute
+  const color = container.dataset.color || "%23f2b33d"; // Default color from your example
+
+  // Create the iframe element
+  const iframe = document.createElement('iframe');
+  iframe.width = "100%";
+  iframe.height = "100%";
+  iframe.allow = "autoplay";
+  iframe.title = trackTitle ? `${artistName} - ${trackTitle}` : "SoundCloud Track";
+  iframe.loading = "lazy";
+
+  // Set the src attribute with all the parameters
+  iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&color=${color}&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true`;
+
+  // Clear the container
+  container.innerHTML = "";
+
+  // Add the iframe to the container
+  container.appendChild(iframe);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 
 

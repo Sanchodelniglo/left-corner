@@ -84,7 +84,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle, rgba(242, 179, 61, 0.2), rgba(191, 77, 40, 0.5)), url('./img/header.webp') center/cover no-repeat;
+  background: url('./img/header.webp') center/cover no-repeat;
   color: white;
   text-align: center;
   position: relative;
@@ -215,7 +215,7 @@ nav {
 }
 
 .nav-links a {
-  color: white;
+  color: var(--light);
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
@@ -240,13 +240,19 @@ nav {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
-  text-align: left;
+  text-align: justify;
+  margin-top: 1rem;
+}
+
+.about-text {
+  line-height: 1.8;
+  letter-spacing: 1px;
 }
 
 .about-image {
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 5px 5px 0 var(--primary);
+  box-shadow: 5px 5px 0 var(--accent);
 }
 
 .about-image img {
@@ -263,8 +269,9 @@ nav {
 /* Tracks */
 .track-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .track-card {
@@ -280,6 +287,37 @@ nav {
   box-shadow: 0 15px 30px rgba(70, 29, 15, 0.2);
 }
 
+.soundcloud-embed {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent);
+  min-height: 153px;
+}
+
+.soundcloud-embed button {
+  background-color: var(--accent);
+  color: var(--light);
+  border: 2px solid var(--light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.soundcloud-embed button:hover {
+  background-color: var(--light);
+  color: var(--dark);
+  border: 2px solid var(--dark);
+}
+
 .track-info {
   padding: 1.5rem;
   text-align: left;
@@ -292,9 +330,9 @@ nav {
 }
 
 .track-play {
-  background-color: var(--accent);
-  color: var(--light);
-  border: none;
+  background-color: var(--light);
+  color: var(--dark);
+  border: 2px solid var(--dark);
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
   font-weight: bold;
@@ -307,14 +345,16 @@ nav {
 }
 
 .track-play:hover {
-  background-color: var(--primary);
+  background-color: var(--dark);
+  color: var(--light);
+  border-color: var(--light);
 }
 
 /* Events */
 .timeline {
   position: relative;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
 .timeline::after {
@@ -407,6 +447,7 @@ nav {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: 200px;
   grid-auto-flow: dense;
+  margin-top: 1rem
 }
 
 .gallery-item {
@@ -604,6 +645,10 @@ textarea {
   color: var(--primary);
   transform: translateY(-5px);
 }
+
+.fa-facebook, .fa-soundcloud{
+  font-size: x-large;
+  }
 
 .thanks-link {
   color: var(--accent);
