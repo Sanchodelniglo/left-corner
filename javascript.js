@@ -61,25 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Sticky navigation
-  const nav = document.getElementById('main-nav');
-  let lastScrollTop = 0;
-  const scrollThreshold = 200; // Only hide after scrolling this many pixels
-
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Only hide nav when scrolled past threshold
-    if (scrollTop > scrollThreshold && scrollTop > lastScrollTop) {
-      // Scrolling down past threshold - hide nav
-      nav.style.transform = 'translateY(-100%)';
-    } else {
-      // Scrolling up or not past threshold - show nav
-      nav.style.transform = 'translateY(0)';
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  });
 
   // Gallery modal functionality
   const galleryItems = document.querySelectorAll('.gallery-item');
@@ -229,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // });
 
   // Smooth scrolling for navigation links
+  const nav = document.getElementById('main-nav');
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
