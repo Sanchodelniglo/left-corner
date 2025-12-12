@@ -3,7 +3,7 @@
    Inspired by Studio One, Treasure Isle, and the golden era of rocksteady
    ═══════════════════════════════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+/* Note: Ranchers font loaded via HTML <link> tag to avoid render-blocking */
 
 :root {
   /* Vintage Jamaican Record Label Color Palette - Harmonized */

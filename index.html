@@ -27,7 +27,6 @@
       content="#F7EFD2">
     <meta name="theme-color" media="(prefers-color-scheme: dark)"
       content="#77331c">
-    <meta name="theme-color" content>
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style"
       content="black-translucent">
@@ -41,7 +40,7 @@
     <link rel="canonical" href="https://left-corner.fr">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ranchers&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <script src="https://kit.fontawesome.com/51297ff295.js"
       crossorigin="anonymous" defer></script>
@@ -75,6 +74,53 @@
       "areaServed": {
         "@type": "Place",
         "name": "Bordeaux et Gironde"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicEvent",
+      "name": "Soirée Ska Punk",
+      "description": "Grosse soirée musicale en perspective ! SKF, Left Corner, Up Full Sound et Los Tres Puntos !",
+      "startDate": "2026-03-07T20:00:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Salle Simone Veil",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Zone Bonard",
+          "addressLocality": "Sauveterre de Guyenne",
+          "postalCode": "33540",
+          "addressRegion": "Gironde",
+          "addressCountry": "FR"
+        }
+      },
+      "performer": [
+        {
+          "@type": "MusicGroup",
+          "name": "Left Corner",
+          "url": "https://left-corner.fr"
+        },
+        {
+          "@type": "MusicGroup",
+          "name": "SKF"
+        },
+        {
+          "@type": "MusicGroup",
+          "name": "Up Full Sound"
+        },
+        {
+          "@type": "MusicGroup",
+          "name": "Los Tres Puntos"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "Left Corner",
+        "url": "https://left-corner.fr"
       }
     }
     </script>
