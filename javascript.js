@@ -1,3 +1,7 @@
+// Check for reduced motion preference
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
 // defer loading of embeded music player
 function loadSoundCloud(button) {
   const container = button.closest('.soundcloud-embed');
@@ -37,23 +41,25 @@ document.addEventListener("DOMContentLoaded", function () {
     navLinks.classList.toggle('active');
   });
 
-  // Parallax effect
+  // Parallax effect (disabled on mobile and for users who prefer reduced motion)
   const header = document.querySelector('header');
 
-  // Set initial background position
-  let scrollPosition = window.pageYOffset;
-  header.style.backgroundPosition = `center ${+scrollPosition * 0.5}px`;
+  if (header && !isMobile && !prefersReducedMotion) {
+    // Set initial background position
+    let scrollPosition = window.pageYOffset;
+    header.style.backgroundPosition = `center ${+scrollPosition * 0.5}px`;
 
-  // Update background position on scroll
-  window.addEventListener('scroll', function () {
-    scrollPosition = window.pageYOffset;
+    // Update background position on scroll
+    window.addEventListener('scroll', function () {
+      scrollPosition = window.pageYOffset;
 
-    // The multiplier 0.5 controls how much slower the background moves (smaller = slower)
-    const yPosition = +scrollPosition * 0.5;
+      // The multiplier 0.5 controls how much slower the background moves (smaller = slower)
+      const yPosition = +scrollPosition * 0.5;
 
-    // Update the background position
-    header.style.backgroundPosition = `center ${yPosition}px`;
-  });
+      // Update the background position
+      header.style.backgroundPosition = `center ${yPosition}px`;
+    });
+  }
 
   // Sticky navigation
   const nav = document.getElementById('main-nav');
@@ -65,10 +71,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Only hide nav when scrolled past threshold
     if (scrollTop > scrollThreshold && scrollTop > lastScrollTop) {
-      // Scrolling down past threshold
-      nav.style.transform = 'translateY(0)';
+      // Scrolling down past threshold - hide nav
+      nav.style.transform = 'translateY(-100%)';
     } else {
-      // Scrolling up or not past threshold
+      // Scrolling up or not past threshold - show nav
       nav.style.transform = 'translateY(0)';
     }
 
@@ -126,6 +132,46 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = 'none';
       }
     }
+  });
+
+  // Swipe gestures for mobile gallery navigation
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  modal.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  modal.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    if (touchEndX < touchStartX - swipeThreshold) {
+      // Swipe left - next slide
+      showSlide(currentSlide + 1);
+    }
+    if (touchEndX > touchStartX + swipeThreshold) {
+      // Swipe right - previous slide
+      showSlide(currentSlide - 1);
+    }
+  }
+
+  // Add keyboard accessibility to gallery items
+  galleryItems.forEach((item, index) => {
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-label', `View gallery image ${index + 1}`);
+
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        modal.style.display = 'block';
+        showSlide(index);
+      }
+    });
   });
 
   // Show slide function

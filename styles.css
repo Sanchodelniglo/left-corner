@@ -436,6 +436,7 @@ nav {
     0 4px 0 var(--rich-black),
     0 6px 20px rgba(0,0,0,0.3);
   border-bottom: var(--border-medium) solid var(--mustard);
+  transition: transform 0.3s ease;
 }
 
 .nav-content {
@@ -509,6 +510,11 @@ nav {
   color: white;
   font-size: var(--text-xl);
   cursor: pointer;
+  padding: var(--space-md);
+  min-width: 48px;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1950,5 +1956,122 @@ footer::before {
 
   .influences-cta {
     padding: var(--space-xl) var(--space-md);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ACCESSIBILITY IMPROVEMENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Focus indicators for keyboard navigation */
+*:focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 3px;
+}
+
+.gallery-item:focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 2px;
+  z-index: 10;
+}
+
+.modal-prev:focus-visible,
+.modal-next:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 2px;
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--mustard);
+  outline-offset: 2px;
+}
+
+/* Improved button contrast for WCAG AA compliance */
+.track-play,
+.header-content .track-play,
+.soundcloud-embed button {
+  color: #000000;
+}
+
+/* Email link styling in contact section */
+.contact-info a {
+  color: var(--deep-red);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-info a:hover {
+  color: var(--mustard-dark);
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   REDUCED MOTION SUPPORT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .gallery-item {
+    transform: none;
+    opacity: 1;
+  }
+
+  .scroll-arrow {
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INTERMEDIATE BREAKPOINT - Tablet (768px - 992px)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 992px) and (min-width: 769px) {
+  .track-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .artists-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-mosaic {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 180px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HOVER MEDIA QUERY - Only apply hover effects on devices with precise pointers
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (hover: none) {
+  .gallery-item:hover,
+  .track-card:hover,
+  .about-image:hover,
+  .timeline-content:hover {
+    transform: none;
+  }
+
+  .gallery-item:active {
+    opacity: 0.95;
   }
 }
