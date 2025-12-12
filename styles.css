@@ -346,7 +346,7 @@ header::after {
 /* Vintage button style */
 .header-content .track-play {
   background: var(--mustard);
-  color: #000000;
+  color: var(--rich-black);
   border: var(--border-medium) solid var(--rich-black);
   padding: var(--space-md) var(--space-xl);
   border-radius: 0;
@@ -367,7 +367,7 @@ header::after {
 
 .header-content .track-play:hover {
   background: var(--mustard);
-  color: #000000;
+  color: var(--rich-black);
   transform: translate(-4px, -4px);
   box-shadow:
     12px 12px 0 var(--rich-black),
@@ -458,6 +458,9 @@ nav {
 
 .logo img:hover {
   transform: rotate(10deg) scale(1.05);
+  box-shadow:
+    0 0 0 3px var(--rich-black),
+    0 0 30px rgba(232, 185, 35, 0.5);
 }
 
 .nav-links {
@@ -680,11 +683,10 @@ nav {
 }
 
 .soundcloud-embed button {
-  background: linear-gradient(180deg, var(--mustard) 0%, var(--gold) 100%);
+  background: var(--mustard);
   color: var(--rich-black);
-  border: var(--border-thin) solid var(--rich-black);
+  border: var(--border-medium) solid var(--rich-black);
   padding: var(--space-sm) var(--space-md);
-  border-radius: 0;
   font-family: var(--font-mono);
   font-weight: bold;
   font-size: var(--text-xs);
@@ -693,18 +695,20 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   text-transform: uppercase;
+  box-shadow: 8px 8px 0 var(--rich-black);
   position: relative;
   z-index: 1;
-  box-shadow: var(--shadow-md) rgba(0,0,0,0.3);
 }
 
 .soundcloud-embed button:hover {
-  background: linear-gradient(180deg, var(--deep-red) 0%, var(--burgundy) 100%);
-  color: var(--cream);
-  transform: translate(1px, 1px);
-  box-shadow: var(--shadow-sm) rgba(0,0,0,0.3);
+  background: var(--mustard);
+  color: var(--rich-black);
+  transform: translate(-4px, -4px);
+  box-shadow:
+    12px 12px 0 var(--rich-black),
+    0 20px 40px rgba(232, 185, 35, 0.4);
 }
 
 .track-info {
@@ -724,7 +728,7 @@ nav {
 /* More tracks button */
 .track-play {
   background: var(--mustard);
-  color: #000000;
+  color: var(--rich-black);
   border: var(--border-medium) solid var(--rich-black);
   padding: var(--space-md) var(--space-xl);
   border-radius: 0;
@@ -744,7 +748,7 @@ nav {
 
 .track-play:hover {
   background: var(--mustard);
-  color: #000000;
+  color: var(--rich-black);
   transform: translate(-4px, -4px);
   box-shadow:
     12px 12px 0 var(--rich-black),
@@ -849,24 +853,26 @@ nav {
 .event-ticket {
   display: inline-block;
   margin-top: var(--space-md);
-  background: linear-gradient(180deg, var(--deep-red) 0%, var(--burgundy) 100%);
-  color: var(--cream);
+  background: var(--mustard);
+  color: var(--rich-black);
   text-decoration: none;
   padding: var(--space-sm) var(--space-md);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: var(--tracking-normal);
   text-transform: uppercase;
-  transition: var(--transition);
-  border: var(--border-thin) solid var(--rich-black);
-  box-shadow: var(--shadow-md) var(--rich-black);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border: var(--border-medium) solid var(--rich-black);
+  box-shadow: 8px 8px 0 var(--rich-black);
 }
 
 .event-ticket:hover {
-  background: linear-gradient(180deg, var(--mustard) 0%, var(--gold) 100%);
+  background: var(--mustard);
   color: var(--rich-black);
-  transform: translate(1px, 1px);
-  box-shadow: var(--shadow-sm) var(--rich-black);
+  transform: translate(-4px, -4px);
+  box-shadow:
+    12px 12px 0 var(--rich-black),
+    0 20px 40px rgba(232, 185, 35, 0.4);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1045,6 +1051,7 @@ nav {
 .modal-prev:hover, .modal-next:hover {
   background: var(--mustard);
   color: var(--rich-black);
+  box-shadow: 0 0 30px rgba(232, 185, 35, 0.5);
 }
 
 .modal-prev {
@@ -1106,7 +1113,7 @@ nav {
   font-family: var(--font-display);
   font-size: var(--text-sm);
   letter-spacing: var(--tracking-wide);
-  border: 2px solid var(--rich-black);
+  border: var(--border-thin) solid var(--rich-black);
 }
 
 .contact-form {
@@ -1154,8 +1161,8 @@ textarea {
 }
 
 .submit-btn {
-  background: linear-gradient(180deg, var(--deep-red) 0%, var(--burgundy) 100%);
-  color: var(--cream);
+  background: var(--mustard);
+  color: var(--rich-black);
   border: var(--border-medium) solid var(--rich-black);
   padding: var(--space-md) var(--space-2xl);
   font-family: var(--font-mono);
@@ -1164,15 +1171,17 @@ textarea {
   letter-spacing: var(--tracking-normal);
   text-transform: uppercase;
   cursor: pointer;
-  transition: var(--transition);
-  box-shadow: var(--shadow-lg) var(--rich-black);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 8px 8px 0 var(--rich-black);
 }
 
 .submit-btn:hover {
-  background: linear-gradient(180deg, var(--mustard) 0%, var(--gold) 100%);
+  background: var(--mustard);
   color: var(--rich-black);
-  transform: translate(2px, 2px);
-  box-shadow: var(--shadow-sm) var(--rich-black);
+  transform: translate(-4px, -4px);
+  box-shadow:
+    12px 12px 0 var(--rich-black),
+    0 20px 40px rgba(232, 185, 35, 0.4);
 }
 
 .contact-info {
@@ -1204,7 +1213,7 @@ textarea {
   gap: var(--space-xl);
   margin-top: var(--space-xl);
   padding-top: var(--space-lg);
-  border-top: 2px dashed var(--brown);
+  border-top: var(--border-thin) dashed var(--brown);
 }
 
 .social-links a {
@@ -1223,10 +1232,10 @@ textarea {
 
 .social-links a:hover {
   background: var(--mustard);
-  color: #000000;
+  color: var(--rich-black);
   transform: translate(-4px, -4px);
   box-shadow:
-    12px 12px 0 #000000,
+    12px 12px 0 var(--rich-black),
     0 20px 40px rgba(232, 185, 35, 0.4);
 }
 
@@ -1552,7 +1561,7 @@ footer::before {
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--deep-red) 0%, var(--burgundy) 100%);
-  border: 2px solid var(--cream);
+  border: var(--border-thin) solid var(--cream);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -1755,7 +1764,7 @@ footer::before {
   padding: var(--space-md) var(--space-lg);
   margin: 0;
   background: var(--cream);
-  border-top: 2px dashed var(--cream-dark);
+  border-top: var(--border-thin) dashed var(--cream-dark);
 }
 
 .tracks-list li {
@@ -1878,7 +1887,7 @@ footer::before {
   padding: var(--space-xs) var(--space-md);
   margin-bottom: var(--space-lg);
   align-self: flex-start;
-  border: 2px solid var(--rich-black);
+  border: var(--border-thin) solid var(--rich-black);
   box-shadow: 4px 4px 0 var(--rich-black);
 }
 
@@ -1909,7 +1918,7 @@ footer::before {
   gap: var(--space-sm);
   font-size: var(--text-sm);
   font-weight: 700;
-  color: #000000;
+  color: var(--rich-black);
   background: var(--mustard);
   text-transform: uppercase;
   letter-spacing: var(--tracking-normal);
@@ -1922,7 +1931,7 @@ footer::before {
 
 .blog-card:hover .blog-card-link {
   background: var(--mustard);
-  color: #000000;
+  color: var(--rich-black);
   transform: translate(-4px, -4px);
   box-shadow:
     12px 12px 0 var(--rich-black),
@@ -2101,8 +2110,6 @@ button:focus-visible {
    MODERN ENHANCEMENTS - Contemporary touches on vintage foundation
    ═══════════════════════════════════════════════════════════════════════════ */
 
-
-
 /* Glowing band name */
 .band-name {
   animation: subtleGlow 3s ease-in-out infinite alternate;
@@ -2142,31 +2149,6 @@ button:focus-visible {
   transition: all 0.3s ease;
 }
 
-.modal-prev:hover,
-.modal-next:hover {
-  box-shadow: 0 0 30px rgba(232, 185, 35, 0.5);
-}
-
 .modal-counter {
   border-radius: 20px;
-}
-
-/* Logo hover glow */
-.logo img:hover {
-  box-shadow:
-    0 0 0 3px var(--rich-black),
-    0 0 30px rgba(232, 185, 35, 0.5);
-}
-
-/* SoundCloud button enhancement */
-.soundcloud-embed button {
-  border-radius: 8px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.soundcloud-embed button:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(196, 30, 58, 0.3);
 }
