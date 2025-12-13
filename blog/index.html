@@ -1,120 +1,159 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Left Corner - Groupe Rocksteady, Reggae & Ska Bordeaux</title>
-    <meta name="description"
-      content="Le blog de Left Corner : articles sur le rocksteady, reggae et ska jamaïcain. Découvrez nos influences, l'histoire des labels légendaires et la scène musicale bordelaise.">
-    <meta name="keywords"
-      content="blog reggae, articles rocksteady, histoire ska, musique jamaïcaine, Left Corner Bordeaux, Studio One, Treasure Isle">
-    <meta name="author" content="Left Corner">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Blog | Left Corner - Groupe Reggae Bordeaux">
-    <meta property="og:description" content="Articles sur le rocksteady, reggae et ska jamaïcain par Left Corner.">
-    <meta property="og:image" content="https://left-corner.fr/img/about.webp">
-    <meta property="og:url" content="https://left-corner.fr/blog/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:site_name" content="Left Corner">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Blog | Left Corner">
-    <meta name="twitter:description" content="Articles sur le rocksteady, reggae et ska jamaïcain par Left Corner.">
-    <meta name="twitter:image" content="https://left-corner.fr/img/about.webp">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F7EFD2">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#77331c">
-    <link rel="icon" type="image/png" href="../favicon/favicon-96x96.webp" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
-    <link rel="shortcut icon" href="../favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="../favicon/site.webmanifest" />
-    <link rel="canonical" href="https://left-corner.fr/blog/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ranchers&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
-    <script src="https://kit.fontawesome.com/51297ff295.js" crossorigin="anonymous" defer></script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "Blog Left Corner",
-      "description": "Articles sur le rocksteady, reggae et ska jamaïcain par Left Corner, groupe de Bordeaux.",
-      "url": "https://left-corner.fr/blog/",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Left Corner",
-        "url": "https://left-corner.fr"
-      },
-      "inLanguage": "fr-FR"
-    }
-    </script>
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav id="main-nav" class="nav-visible" aria-label="Main navigation">
-      <div class="container nav-content">
-        <a href="../" class="logo" aria-label="Retour à l'accueil">
-          <img src="../img/logo.webp" alt="Left Corner">
-        </a>
-        <button class="menu-toggle" id="menuToggle" aria-expanded="false"
-          aria-controls="navLinks" aria-label="Toggle navigation menu">
-          <span class="hamburger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="../#about">Nous</a></li>
-          <li><a href="../#tracks">Tracks</a></li>
-          <li><a href="../#events">Concerts</a></li>
-          <li><a href="../#gallery">Galerie</a></li>
-          <li><a href="../#contact">Contact</a></li>
-          <li><a href="./" class="nav-active">Blog</a></li>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Left Corner - Rocksteady, Reggae & Ska Bordeaux</title>
+  <meta name="description" content="Le blog de Left Corner : articles sur le rocksteady, reggae et ska jamaïcain. Découvrez nos influences, l'histoire des labels légendaires et la scène musicale bordelaise.">
+  <meta name="keywords" content="blog reggae, articles rocksteady, histoire ska, musique jamaïcaine, Left Corner Bordeaux, Studio One, Treasure Isle">
+  <meta name="author" content="Left Corner">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog | Left Corner - Groupe Reggae Bordeaux">
+  <meta property="og:description" content="Articles sur le rocksteady, reggae et ska jamaïcain par Left Corner.">
+  <meta property="og:image" content="https://left-corner.fr/img/about.webp">
+  <meta property="og:url" content="https://left-corner.fr/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../styles.css">
+
+  <!-- No-JS fallback -->
+  <noscript>
+    <style>
+      [data-animate] { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+    </style>
+  </noscript>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Left Corner",
+    "description": "Articles sur le rocksteady, reggae et ska jamaïcain par Left Corner, groupe de Bordeaux.",
+    "url": "https://left-corner.fr/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Left Corner",
+      "url": "https://left-corner.fr"
+    },
+    "inLanguage": "fr-FR"
+  }
+  </script>
+</head>
+<body>
+  <!-- Cursor follower -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Skip link -->
+  <a href="#main" class="skip-link">Aller au contenu</a>
+
+  <!-- Navigation -->
+  <nav class="nav nav--blog" id="nav">
+    <div class="nav__inner">
+      <a href="../" class="nav__logo">
+        <img src="../img/logo.webp" alt="Left Corner" width="100" height="33">
+      </a>
+
+      <button class="nav__toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../#about" class="nav__link" data-text="Nous">Nous</a></li>
+          <li><a href="../#tracks" class="nav__link" data-text="Tracks">Tracks</a></li>
+          <li><a href="../#events" class="nav__link" data-text="Live">Live</a></li>
+          <li><a href="../#gallery" class="nav__link" data-text="Photos">Photos</a></li>
+          <li><a href="../#contact" class="nav__link" data-text="Contact">Contact</a></li>
+          <li><a href="./" class="nav__link is-active" data-text="Blog" aria-current="page">Blog</a></li>
         </ul>
-      </div>
-    </nav>
 
-    <!-- Header -->
-    <header class="page-header">
-      <div class="page-header-content">
-        <h1>Blog</h1>
-        <p>Plongez dans l'univers du rocksteady, reggae et ska : histoires, influences et culture jamaïcaine.</p>
-      </div>
-      <div class="scroll-indicator">
-        <div class="scroll-arrow arrow-1"></div>
-        <div class="scroll-arrow arrow-2"></div>
-      </div>
-    </header>
-
-    <main>
-      <section class="blog-index">
-        <div class="container">
-          <div class="blog-grid">
-            <article class="blog-card">
-              <a href="./influences.html">
-                <div class="blog-card-content">
-                  <span class="blog-card-tag">Musique</span>
-                  <h2>Nos Influences</h2>
-                  <p>Découvrez les légendes du rocksteady et ska qui inspirent Left Corner : Studio One, Treasure Isle, Alton Ellis, The Skatalites et plus.</p>
-                  <span class="blog-card-link">Lire l'article <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </div>
-              </a>
-            </article>
+        <div class="nav__vinyl" aria-hidden="true">
+          <div class="vinyl vinyl--small">
+            <div class="vinyl__label"></div>
           </div>
         </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <p>&copy; 2025 Left Corner - Bordeaux Rocksteady, Reggae & Ska. All rights reserved.</p>
-        <p>Pour ceux qui connaissent ...</p>
       </div>
-    </footer>
-    <script src="../javascript.js" defer></script>
-  </body>
+    </div>
+  </nav>
+
+  <!-- Blog Header -->
+  <header class="blog-hero">
+    <div class="blog-hero__bg" aria-hidden="true"></div>
+    <div class="blog-hero__content">
+      <h1 class="blog-hero__title" data-animate="reveal">Blog</h1>
+      <p class="blog-hero__subtitle" data-animate="fade-up">
+        Plongez dans l'univers du rocksteady, reggae et ska : histoires, influences et culture jamaïcaine.
+      </p>
+    </div>
+    <div class="blog-hero__cut" aria-hidden="true"></div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <section class="section section--blog-index">
+      <div class="blog-grid">
+
+        <article class="blog-card" data-animate="fade-up">
+          <a href="./influences.html" class="blog-card__link">
+            <div class="blog-card__vinyl" aria-hidden="true">
+              <div class="vinyl vinyl--card">
+                <div class="vinyl__grooves"></div>
+                <div class="vinyl__label vinyl__label--red">
+                  <span class="vinyl__rpm">33</span>
+                </div>
+              </div>
+            </div>
+            <div class="blog-card__content">
+              <span class="blog-card__tag">Musique</span>
+              <h2 class="blog-card__title">Nos Influences</h2>
+              <p class="blog-card__excerpt">
+                Découvrez les légendes du rocksteady et ska qui inspirent Left Corner : Studio One, Treasure Isle, Alton Ellis, The Skatalites et plus.
+              </p>
+              <span class="blog-card__cta">
+                Lire l'article
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- More articles will go here -->
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__copy">&copy; 2025 Left Corner · Bordeaux</p>
+      <p class="footer__secret">Pour ceux qui connaissent...</p>
+    </div>
+    <div class="footer__halftone" aria-hidden="true"></div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
 </html>
