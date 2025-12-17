@@ -2800,6 +2800,10 @@ body.is-hidden .marquee__content {
   width: clamp(150px, 25vw, 250px);
 }
 
+.influences-cta-section__vinyl .vinyl--large {
+  width: 100%;
+}
+
 .influences-cta-section__text {
   text-align: left;
 }
