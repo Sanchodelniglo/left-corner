@@ -448,22 +448,63 @@ class Gallery {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// PARALLAX
+// SECTION PARALLAX - Cinematic scroll effects
 // ═══════════════════════════════════════════════════════════════════════════
 
-class Parallax {
+class SectionParallax {
   constructor() {
+    this.ticking = false;
+    this.windowHeight = window.innerHeight;
+
+    // Hero
     this.hero = document.querySelector('.hero');
     this.heroImg = document.querySelector('.hero__img');
     this.heroVinyl = document.querySelector('.hero__vinyl');
-    this.parallaxElements = document.querySelectorAll('[data-parallax]');
-    this.ticking = false;
+    this.heroText = document.querySelector('.hero__text');
+    this.heroTitle = document.querySelector('.hero__title');
+
+    // About
+    this.aboutSection = document.querySelector('.section--about');
+    this.aboutTitle = document.querySelector('.about__title');
+    this.aboutImage = document.querySelector('.about__image');
+    this.aboutContent = document.querySelector('.about__content');
+    this.aboutStats = document.querySelector('.about__stats');
+
+    // Tracks
+    this.tracksSection = document.querySelector('.section--tracks');
+    this.tracksHeader = document.querySelector('.section--tracks .section__header');
+    this.tracks = document.querySelectorAll('.track');
+
+    // Events
+    this.eventsSection = document.querySelector('.section--events');
+    this.eventsHeader = document.querySelector('.events__header');
+    this.events = document.querySelectorAll('.event');
+
+    // Gallery
+    this.gallerySection = document.querySelector('.section--gallery');
+    this.galleryTitle = document.querySelector('.section--gallery .section__title');
+    this.galleryItems = document.querySelectorAll('.gallery__item');
+
+    // Contact
+    this.contactSection = document.querySelector('.section--contact');
+    this.contactInfo = document.querySelector('.contact__info');
+    this.contactVisual = document.querySelector('.contact__visual');
+
+    // Thanks
+    this.thanksSection = document.querySelector('.section--thanks');
+    this.marquee = document.querySelector('.marquee');
+    this.thanksContent = document.querySelector('.thanks__content');
   }
 
   init() {
     if (isMobile || prefersReducedMotion) return;
 
     window.addEventListener('scroll', () => this.onScroll(), { passive: true });
+    window.addEventListener('resize', () => {
+      this.windowHeight = window.innerHeight;
+    }, { passive: true });
+
+    this.update();
   }
 
   onScroll() {
@@ -476,37 +517,185 @@ class Parallax {
     }
   }
 
+  // Progress through viewport: 0 = bottom edge at viewport bottom, 1 = top edge at viewport top
+  getProgress(element) {
+    if (!element) return 0;
+    const rect = element.getBoundingClientRect();
+    return (this.windowHeight - rect.top) / (this.windowHeight + rect.height);
+  }
+
+  isInView(element) {
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return rect.top < this.windowHeight && rect.bottom > 0;
+  }
+
+  // Get element progress: -1 = below viewport, 0 = centered, 1 = above viewport
+  getCenteredProgress(element) {
+    if (!element) return 0;
+    const rect = element.getBoundingClientRect();
+    const elementCenter = rect.top + rect.height / 2;
+    const viewportCenter = this.windowHeight / 2;
+    // Returns 0 when element center is at viewport center
+    return (viewportCenter - elementCenter) / (this.windowHeight / 2);
+  }
+
   update() {
     const scrollY = window.pageYOffset;
 
-    // Hero image parallax
-    if (this.heroImg && this.hero) {
-      const heroHeight = this.hero.offsetHeight;
-      if (scrollY <= heroHeight) {
-        const yPos = scrollY * CONFIG.parallax.intensity;
-        this.heroImg.style.transform = `translateY(${yPos}px) scale(1.1)`;
+    // ═══════════════════════════════════════════════════════════════════════
+    // HERO - Title zooms out, vinyl slides right, image zooms in
+    // ═══════════════════════════════════════════════════════════════════════
+    if (this.hero && this.isInView(this.hero)) {
+      const progress = clamp(scrollY / (this.hero.offsetHeight * 0.8), 0, 1);
+
+      // Background zooms IN as you scroll
+      if (this.heroImg) {
+        const scale = 1.1 + progress * 0.3;
+        this.heroImg.style.transform = `scale(${scale})`;
+      }
+
+      // Title zooms OUT
+      if (this.heroText) {
+        const scale = 1 - progress * 0.3;
+        this.heroText.style.transform = `scale(${scale})`;
+      }
+
+      // Vinyl slides to the RIGHT and rotates
+      if (this.heroVinyl) {
+        const xPos = progress * 200;
+        const rotation = scrollY * 0.2;
+        this.heroVinyl.style.transform = `translateX(${xPos}px) rotate(${rotation}deg)`;
       }
     }
 
-    // Hero vinyl rotation based on scroll
-    if (this.heroVinyl) {
-      const rotation = scrollY * 0.1;
-      this.heroVinyl.style.transform = `rotate(${rotation}deg)`;
+    // ═══════════════════════════════════════════════════════════════════════
+    // ABOUT - Image from LEFT, content from RIGHT, centered at viewport middle
+    // ═══════════════════════════════════════════════════════════════════════
+    if (this.aboutSection && this.isInView(this.aboutSection)) {
+      const progress = this.getCenteredProgress(this.aboutSection);
+
+      // Title: scale 1 at center
+      if (this.aboutTitle) {
+        const scale = 1 - Math.abs(progress) * 0.3;
+        this.aboutTitle.style.transform = `scale(${clamp(scale, 0.7, 1)})`;
+      }
+
+      // Image slides from LEFT (at position when centered)
+      if (this.aboutImage) {
+        const xPos = -progress * 100;
+        this.aboutImage.style.transform = `translateX(${clamp(xPos, -150, 0)}px)`;
+      }
+
+      // Content slides from RIGHT (at position when centered)
+      if (this.aboutContent) {
+        const xPos = progress * 100;
+        this.aboutContent.style.transform = `translateX(${clamp(xPos, 0, 150)}px)`;
+      }
+
+      // Stats zoom
+      if (this.aboutStats) {
+        const scale = 1 - Math.abs(progress) * 0.2;
+        this.aboutStats.style.transform = `scale(${clamp(scale, 0.8, 1)})`;
+      }
     }
 
-    // Generic parallax elements
-    this.parallaxElements.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom > 0;
-
-      if (inView) {
-        const intensity = parseFloat(el.dataset.parallax) || 0.1;
-        const yPos = (rect.top - window.innerHeight / 2) * intensity;
-        el.style.transform = `translateY(${yPos}px)`;
+    // ═══════════════════════════════════════════════════════════════════════
+    // TRACKS - Header and tracks slide right to left on scroll down
+    // ═══════════════════════════════════════════════════════════════════════
+    if (this.tracksSection && this.isInView(this.tracksSection)) {
+      // Header
+      if (this.tracksHeader) {
+        const progress = this.getCenteredProgress(this.tracksHeader);
+        const xPos = -progress * 150;
+        this.tracksHeader.style.transform = `translateX(${xPos}px)`;
       }
-    });
+
+      // Tracks slide from left to right
+      this.tracks.forEach((track) => {
+        const progress = this.getCenteredProgress(track);
+        const xPos = progress * 80;
+
+        track.style.transform = `translateX(${xPos}px)`;
+      });
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // EVENTS - Subtle header slide, events float
+    // ═══════════════════════════════════════════════════════════════════════
+    if (this.eventsSection && this.isInView(this.eventsSection)) {
+      // "LIVE" text slides subtly
+      if (this.eventsHeader) {
+        const progress = this.getCenteredProgress(this.eventsHeader);
+        const xPos = progress * 40;
+        this.eventsHeader.style.transform = `translateX(${xPos}px)`;
+      }
+
+      // Events float and zoom in when centered
+      this.events.forEach((event) => {
+        const progress = this.getCenteredProgress(event);
+        const yPos = -progress * 40;
+        const scale = 1 - Math.abs(progress) * 0.15;
+
+        event.style.transform = `translateY(${yPos}px) scale(${clamp(scale, 0.85, 1)})`;
+      });
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // GALLERY - Subtle scale effect based on section scroll
+    // ═══════════════════════════════════════════════════════════════════════
+    if (this.gallerySection && this.isInView(this.gallerySection)) {
+      const sectionProgress = this.getCenteredProgress(this.gallerySection);
+
+      // Title scales
+      if (this.galleryTitle) {
+        const scale = 1 - Math.abs(sectionProgress) * 0.1;
+        this.galleryTitle.style.transform = `scale(${clamp(scale, 0.9, 1)})`;
+      }
+
+      // Items scale subtly - larger when section centered
+      this.galleryItems.forEach((item) => {
+        const scale = 1 - Math.abs(sectionProgress) * 0.05;
+        item.style.transform = `scale(${clamp(scale, 0.95, 1)})`;
+      });
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // CONTACT - Info slides, vinyl rotates on scroll
+    // ═══════════════════════════════════════════════════════════════════════
+    if (this.contactSection && this.isInView(this.contactSection)) {
+      const progress = this.getCenteredProgress(this.contactSection);
+
+      // Info slides horizontally
+      if (this.contactInfo) {
+        const xPos = progress * 60;
+        this.contactInfo.style.transform = `translateX(${xPos}px)`;
+      }
+
+      // Vinyl visual floats and rotates
+      if (this.contactVisual) {
+        const yPos = -progress * 50;
+        const rotation = progress * 90;
+        this.contactVisual.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
+      }
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // THANKS - Content movement, centered at viewport middle
+    // ═══════════════════════════════════════════════════════════════════════
+    if (this.thanksSection && this.isInView(this.thanksSection)) {
+      if (this.thanksContent) {
+        const progress = this.getCenteredProgress(this.thanksContent);
+        const scale = 1 - Math.abs(progress) * 0.2;
+        const yPos = -progress * 50;
+        this.thanksContent.style.transform = `translateY(${yPos}px) scale(${clamp(scale, 0.8, 1)})`;
+      }
+    }
   }
 }
+
+// Legacy alias for compatibility
+const Parallax = SectionParallax;
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SOUNDCLOUD PLAYER

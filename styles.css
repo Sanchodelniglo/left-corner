@@ -775,7 +775,7 @@ em {
 
 .section {
   position: relative;
-  padding: var(--space-3xl) var(--space-md);
+  padding: var(--space-2xl) var(--space-md);
   overflow: hidden;
 }
 
@@ -920,8 +920,6 @@ em {
   display: flex;
   justify-content: center;
   gap: var(--space-2xl);
-  padding-top: var(--space-xl);
-  border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .stat {
@@ -1787,14 +1785,6 @@ em {
   transform: translateY(0);
 }
 
-/* Stagger delays */
-[data-animate="stagger"].is-visible > *:nth-child(1) { transition-delay: 0ms; }
-[data-animate="stagger"].is-visible > *:nth-child(2) { transition-delay: 100ms; }
-[data-animate="stagger"].is-visible > *:nth-child(3) { transition-delay: 200ms; }
-[data-animate="stagger"].is-visible > *:nth-child(4) { transition-delay: 300ms; }
-[data-animate="stagger"].is-visible > *:nth-child(5) { transition-delay: 400ms; }
-[data-animate="stagger"].is-visible > *:nth-child(6) { transition-delay: 500ms; }
-[data-animate="stagger"].is-visible > *:nth-child(7) { transition-delay: 600ms; }
 
 [data-delay="100"] { transition-delay: 100ms; }
 [data-delay="200"] { transition-delay: 200ms; }
@@ -1842,6 +1832,87 @@ body.is-hidden .vinyl--large {
 
 body.is-hidden .marquee__content {
   animation-play-state: paused;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SECTION PARALLAX - GPU acceleration & smooth transitions
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* All parallax elements get smooth transitions */
+.hero__img,
+.hero__vinyl,
+.hero__text,
+.about__title,
+.about__image,
+.about__content,
+.about__stats,
+.section--tracks .section__header,
+.track,
+.events__header,
+.event,
+.section--gallery .section__title,
+.gallery__item,
+.contact__info,
+.contact__visual .vinyl,
+.thanks__content {
+  will-change: transform;
+  transition: transform 0.15s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Transform origins */
+.hero__text,
+.about__title,
+.about__stats,
+.event {
+  transform-origin: center center;
+}
+
+/* Gallery needs longer, smoother transition */
+.section--gallery .section__title,
+.gallery__item {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Contact visual parallax */
+.contact__visual {
+  will-change: transform;
+  transition: transform 0.15s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.contact__visual .vinyl {
+  animation: none;
+}
+
+.contact__info {
+  transform-origin: left center;
+}
+
+.thanks__content {
+  transform-origin: center top;
+}
+
+/* Disable parallax on mobile and reduced motion */
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .hero__img,
+  .hero__vinyl,
+  .hero__text,
+  .about__title,
+  .about__image,
+  .about__content,
+  .about__stats,
+  .section--tracks .section__header,
+  .track,
+  .events__header,
+  .event,
+  .section--gallery .section__title,
+  .gallery__item,
+  .contact__info,
+  .contact__visual,
+  .thanks__content {
+    will-change: auto;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1959,8 +2030,8 @@ body.is-hidden .marquee__content {
   border: 2px solid var(--clr-black);
   padding: var(--space-lg);
   padding-right: calc(var(--space-lg) + 70px);
-  transition: transform var(--duration-fast) var(--ease-bounce),
-              box-shadow var(--duration-fast);
+  transition: transform 0.1s ease-out,
+              box-shadow 0.1s ease-out;
 }
 
 @media (hover: hover) {
@@ -1977,7 +2048,7 @@ body.is-hidden .marquee__content {
   transform: translateY(-50%);
   width: 80px;
   height: 80px;
-  transition: transform var(--duration-normal) var(--ease-out);
+  transition: transform 0.1s ease-out;
   z-index: 1;
 }
 
