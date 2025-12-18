@@ -509,6 +509,117 @@ class Parallax {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// MOUSE PARALLAX
+// ═══════════════════════════════════════════════════════════════════════════
+
+class MouseParallax {
+  constructor() {
+    this.elements = document.querySelectorAll('[data-mouse-parallax]');
+    this.mouse = { x: 0.5, y: 0.5 }; // Normalized 0-1
+    this.target = { x: 0.5, y: 0.5 };
+    this.ease = 0.08;
+    this.isRunning = false;
+  }
+
+  init() {
+    if (isMobile || isCoarsePointer || prefersReducedMotion || this.elements.length === 0) return;
+
+    document.addEventListener('mousemove', (e) => {
+      this.target.x = e.clientX / window.innerWidth;
+      this.target.y = e.clientY / window.innerHeight;
+    });
+
+    // Reset to center when mouse leaves
+    document.addEventListener('mouseleave', () => {
+      this.target.x = 0.5;
+      this.target.y = 0.5;
+    });
+
+    this.isRunning = true;
+    this.animate();
+  }
+
+  animate() {
+    if (!this.isRunning) return;
+
+    // Smooth interpolation
+    this.mouse.x = lerp(this.mouse.x, this.target.x, this.ease);
+    this.mouse.y = lerp(this.mouse.y, this.target.y, this.ease);
+
+    // Calculate offset from center (-0.5 to 0.5)
+    const offsetX = this.mouse.x - 0.5;
+    const offsetY = this.mouse.y - 0.5;
+
+    this.elements.forEach((el) => {
+      const intensity = parseFloat(el.dataset.mouseParallax) || 20;
+      const invert = el.dataset.mouseParallaxInvert !== undefined;
+      const multiplier = invert ? -1 : 1;
+      const style = el.dataset.mouseParallaxStyle || 'shift';
+
+      const x = offsetX * intensity * multiplier;
+      const y = offsetY * intensity * multiplier;
+
+      switch (style) {
+        case 'tilt':
+          // 3D tilt effect - rotates based on mouse position
+          const rotateX = offsetY * intensity * -0.5 * multiplier;
+          const rotateY = offsetX * intensity * 0.5 * multiplier;
+          el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          break;
+
+        case 'float':
+          // Floating effect - translate + subtle rotation
+          const floatRotate = offsetX * intensity * 0.2 * multiplier;
+          el.style.translate = `${x}px ${y}px`;
+          el.style.rotate = `${floatRotate}deg`;
+          break;
+
+        case 'scale':
+          // Scale effect - grows/shrinks subtly based on mouse distance
+          const distance = Math.sqrt(offsetX * offsetX + offsetY * offsetY);
+          const scale = 1 + (distance * intensity * 0.01 * multiplier);
+          el.style.translate = `${x * 0.5}px ${y * 0.5}px`;
+          el.style.scale = scale;
+          break;
+
+        case 'rotate':
+          // Pure rotation based on horizontal mouse position
+          const rotation = offsetX * intensity * multiplier;
+          el.style.rotate = `${rotation}deg`;
+          break;
+
+        case 'depth':
+          // Strong depth effect with scale
+          const depthScale = 1 + (offsetY * intensity * 0.005 * multiplier);
+          el.style.translate = `${x * 1.5}px ${y * 1.5}px`;
+          el.style.scale = clamp(depthScale, 0.95, 1.05);
+          break;
+
+        case 'wave':
+          // Wave effect - each element offset by its position
+          const rect = el.getBoundingClientRect();
+          const elementCenterX = (rect.left + rect.width / 2) / window.innerWidth;
+          const waveOffset = Math.sin(elementCenterX * Math.PI * 2 + offsetX * 2) * intensity * 0.5;
+          el.style.translate = `${x}px ${y + waveOffset}px`;
+          break;
+
+        case 'shift':
+        default:
+          // Default shift effect
+          el.style.translate = `${x}px ${y}px`;
+          break;
+      }
+    });
+
+    requestAnimationFrame(() => this.animate());
+  }
+
+  destroy() {
+    this.isRunning = false;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // SOUNDCLOUD PLAYER
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -778,9 +889,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!prefersReducedMotion) {
     const scrollAnimator = new ScrollAnimator();
     const parallax = new Parallax();
+    const mouseParallax = new MouseParallax();
 
     scrollAnimator.init();
     parallax.init();
+    mouseParallax.init();
   } else {
     // Make all animated elements visible immediately
     document.querySelectorAll('[data-animate]').forEach((el) => {
