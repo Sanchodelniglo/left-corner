@@ -1571,7 +1571,7 @@ em {
 
 .footer__secret {
   font-size: var(--fs-xs);
-  opacity: 0.4;
+  opacity: 0.6;
   font-style: italic;
 }
 
@@ -1838,6 +1838,13 @@ body.is-hidden .marquee__content {
    SECTION PARALLAX - GPU acceleration & smooth transitions
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* Core parallax elements - only hero needs will-change for performance */
+.hero__img,
+.hero__vinyl,
+.hero__text {
+  will-change: transform;
+}
+
 /* All parallax elements get smooth transitions */
 .hero__img,
 .hero__vinyl,
@@ -1855,7 +1862,6 @@ body.is-hidden .marquee__content {
 .contact__info,
 .contact__visual .vinyl,
 .thanks__content {
-  will-change: transform;
   transition: transform 0.15s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
@@ -1875,7 +1881,6 @@ body.is-hidden .marquee__content {
 
 /* Contact visual parallax */
 .contact__visual {
-  will-change: transform;
   transition: transform 0.15s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
@@ -1895,6 +1900,12 @@ body.is-hidden .marquee__content {
 @media (max-width: 768px), (prefers-reduced-motion: reduce) {
   .hero__img,
   .hero__vinyl,
+  .hero__text {
+    will-change: auto;
+  }
+
+  .hero__img,
+  .hero__vinyl,
   .hero__text,
   .about__title,
   .about__image,
@@ -1909,7 +1920,6 @@ body.is-hidden .marquee__content {
   .contact__info,
   .contact__visual,
   .thanks__content {
-    will-change: auto;
     transform: none !important;
     transition: none !important;
   }
