@@ -1896,8 +1896,8 @@ body.is-hidden .marquee__content {
   transform-origin: center top;
 }
 
-/* Disable parallax on mobile and reduced motion */
-@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+/* Disable parallax for reduced motion users */
+@media (prefers-reduced-motion: reduce) {
   .hero__img,
   .hero__vinyl,
   .hero__text {
@@ -1922,6 +1922,11 @@ body.is-hidden .marquee__content {
   .thanks__content {
     transform: none !important;
     transition: none !important;
+  }
+
+  .vinyl--hero,
+  .vinyl--large {
+    animation: none !important;
   }
 }
 
@@ -3014,3 +3019,107 @@ body.is-hidden .marquee__content {
     width: 150px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   21. ACCESSIBILITY & UX FIXES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Focus-visible indicators for interactive elements */
+.track__play:focus-visible {
+  outline: 3px solid var(--clr-cream);
+  outline-offset: 3px;
+}
+
+.gallery__item:focus-visible {
+  outline: 3px solid var(--clr-gold);
+  outline-offset: 3px;
+}
+
+.gallery__item:focus-visible img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.gallery__item:focus-visible figcaption {
+  transform: translateY(0);
+}
+
+.nav__link:focus-visible {
+  outline: 2px solid var(--clr-gold);
+  outline-offset: 4px;
+}
+
+.social-link:focus-visible {
+  outline: 3px solid var(--clr-gold);
+  outline-offset: 3px;
+  background: var(--clr-black);
+  color: var(--clr-cream);
+}
+
+/* Keyboard accessibility - ensure elements are tabbable */
+.gallery__item[tabindex="0"] {
+  cursor: pointer;
+}
+
+/* Intermediate breakpoint for tracks grid (768-992px) */
+@media (min-width: 768px) and (max-width: 992px) {
+  .tracks__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+/* Prevent sticky hover on touch devices */
+@media (hover: none) {
+  .track:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .track__play:hover {
+    transform: none;
+    background: var(--clr-gold);
+  }
+
+  .social-link:hover {
+    background: transparent;
+    color: var(--clr-black);
+    transform: none;
+  }
+
+  .event:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .blog-card__link:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Increase hamburger menu touch target to 48px minimum */
+.nav__toggle {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Add transition to nav for smooth hide/show animation */
+.nav {
+  transition: background var(--duration-normal) var(--ease-out),
+              transform var(--duration-normal) var(--ease-out),
+              opacity var(--duration-normal) var(--ease-out);
+}
+
+/* Fix vinyl overlap in influences CTA on tablet */
+@media (min-width: 768px) and (max-width: 992px) {
+  .influences-cta-section__content {
+    gap: var(--space-lg);
+  }
+
+  .influences-cta-section__vinyl {
+    width: clamp(120px, 20vw, 180px);
+    flex-shrink: 0;
+  }
+}
+
