@@ -1,0 +1,134 @@
+# GitHub Pages Deployment
+# Deploys static site to GitHub Pages with minification
+#
+# Best practices implemented:
+# - Minimal GITHUB_TOKEN permissions
+# - Concurrency control (cancels stale deployments)
+# - Environment protection for production
+# - Dependency caching for faster builds
+# - HTML/CSS/JS minification for performance
+# - Manual trigger for emergency deploys
+
+name: Deploy to GitHub Pages
+
+on:
+  # Deploy on push to main
+  push:
+    branches: [main]
+    paths-ignore:
+      - '.github/**'
+      - '!.github/workflows/deploy.yml'
+      - 'README.md'
+      - 'LICENSE'
+
+  # Allow manual deployment
+  workflow_dispatch:
+
+# Minimal permissions - only what's needed
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Cancel in-progress deployments for same ref
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Build job - minifies and prepares static assets
+  build:
+    name: Build & Minify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-minify-${{ hashFiles('.github/workflows/deploy.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-minify-
+
+      - name: Install minification tools
+        run: npm install -g html-minifier-terser csso-cli terser
+
+      - name: Create build directory
+        run: mkdir -p _site
+
+      - name: Copy static assets
+        run: |
+          cp -r img _site/
+          cp -r favicon _site/
+          cp -r fonts _site/
+          cp -r blog _site/
+          cp CNAME _site/
+          cp robots.txt _site/
+          cp sitemap.xml _site/
+
+      - name: Minify HTML
+        run: |
+          html-minifier-terser \
+            --collapse-whitespace \
+            --remove-comments \
+            --remove-redundant-attributes \
+            --remove-empty-attributes \
+            --minify-css true \
+            --minify-js true \
+            -o _site/index.html \
+            index.html
+
+          # Minify blog HTML files
+          for file in blog/*.html; do
+            html-minifier-terser \
+              --collapse-whitespace \
+              --remove-comments \
+              --remove-redundant-attributes \
+              --remove-empty-attributes \
+              --minify-css true \
+              --minify-js true \
+              -o "_site/$file" \
+              "$file"
+          done
+
+      - name: Minify CSS
+        run: |
+          csso styles.css -o _site/styles.css
+
+      - name: Minify JavaScript
+        run: |
+          terser main.js \
+            --compress \
+            --mangle \
+            -o _site/main.js
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+  # Deploy job - publishes to GitHub Pages
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
+
+    # Deploy to github-pages environment with URL output
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
