@@ -265,7 +265,7 @@ class Navigation {
         this.nav.classList.add('is-hidden');
         this.isHidden = true;
       }
-    } else {
+    } else if (currentScroll < this.lastScroll) {
       // Scrolling up - show nav
       if (this.isHidden) {
         this.nav.classList.remove('is-hidden');
@@ -497,7 +497,7 @@ class SectionParallax {
   }
 
   init() {
-    if (isMobile || prefersReducedMotion) return;
+    if (prefersReducedMotion) return;
 
     window.addEventListener('scroll', () => this.onScroll(), { passive: true });
     window.addEventListener('resize', () => {
