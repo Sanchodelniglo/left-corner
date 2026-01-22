@@ -49,25 +49,52 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Nos Influences Musicales : Studio One, Treasure Isle et les Pionniers du Ska",
-    "description": "Découvrez les légendes du rocksteady, reggae et ska qui inspirent Left Corner.",
-    "image": "https://left-corner.fr/img/about.webp",
-    "author": {
-      "@type": "MusicGroup",
-      "name": "Left Corner",
-      "url": "https://left-corner.fr"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Left Corner",
-      "url": "https://left-corner.fr"
-    },
-    "datePublished": "2025-12-03",
-    "dateModified": "2025-12-13",
-    "mainEntityOfPage": "https://left-corner.fr/blog/influences.html",
-    "keywords": ["rocksteady", "reggae", "ska", "Studio One", "Treasure Isle"],
-    "inLanguage": "fr-FR"
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Nos Influences Musicales : Studio One, Treasure Isle et les Pionniers du Ska",
+        "description": "Découvrez les légendes du rocksteady, reggae et ska qui inspirent Left Corner.",
+        "image": "https://left-corner.fr/img/about.webp",
+        "author": {
+          "@type": "MusicGroup",
+          "name": "Left Corner",
+          "url": "https://left-corner.fr"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Left Corner",
+          "url": "https://left-corner.fr"
+        },
+        "datePublished": "2025-12-03",
+        "dateModified": "2025-12-13",
+        "mainEntityOfPage": "https://left-corner.fr/blog/influences.html",
+        "keywords": ["rocksteady", "reggae", "ska", "Studio One", "Treasure Isle"],
+        "inLanguage": "fr-FR"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://left-corner.fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://left-corner.fr/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Nos Influences",
+            "item": "https://left-corner.fr/blog/influences.html"
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>

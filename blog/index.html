@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog | Left Corner - Rocksteady, Reggae & Ska Bordeaux</title>
+  <title>Blog | Left Corner - Groupe Reggae & Rocksteady Bordeaux</title>
   <meta name="description" content="Le blog de Left Corner : articles sur le rocksteady, reggae et ska jamaïcain. Découvrez nos influences, l'histoire des labels légendaires et la scène musicale bordelaise.">
   <meta name="keywords" content="blog reggae, articles rocksteady, histoire ska, musique jamaïcaine, Left Corner Bordeaux, Studio One, Treasure Isle">
   <meta name="author" content="Left Corner">
@@ -49,16 +49,37 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Blog Left Corner",
-    "description": "Articles sur le rocksteady, reggae et ska jamaïcain par Left Corner, groupe de Bordeaux.",
-    "url": "https://left-corner.fr/blog/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Left Corner",
-      "url": "https://left-corner.fr"
-    },
-    "inLanguage": "fr-FR"
+    "@graph": [
+      {
+        "@type": "Blog",
+        "name": "Blog Left Corner",
+        "description": "Articles sur le rocksteady, reggae et ska jamaïcain par Left Corner, groupe de Bordeaux.",
+        "url": "https://left-corner.fr/blog/",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Left Corner",
+          "url": "https://left-corner.fr"
+        },
+        "inLanguage": "fr-FR"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://left-corner.fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://left-corner.fr/blog/"
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>

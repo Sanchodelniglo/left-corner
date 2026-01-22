@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Left Corner - Rocksteady, Reggae & Ska | Bordeaux</title>
-  <meta name="description" content="Left Corner, groupe de rocksteady, reggae et ska de Bordeaux. Découvrez notre musique inspirée des légendes jamaïcaines : Studio One, Treasure Isle, Alton Ellis, The Skatalites.">
+  <title>Left Corner | Groupe Reggae & Rocksteady Bordeaux</title>
+  <meta name="description" content="Left Corner, groupe de reggae et rocksteady de Bordeaux. Concerts en Gironde, musique inspirée du ska jamaïcain. Écoutez nos morceaux et réservez-nous !">
   <meta name="keywords" content="Left Corner, rocksteady Bordeaux, reggae français, ska Bordeaux, groupe reggae, musique jamaïcaine, Studio One, Treasure Isle">
   <meta name="author" content="Left Corner">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Left Corner - Rocksteady, Reggae & Ska | Bordeaux">
-  <meta property="og:description" content="Groupe de rocksteady, reggae et ska de Bordeaux inspiré par les légendes jamaïcaines.">
+  <meta property="og:title" content="Left Corner | Groupe Reggae & Rocksteady Bordeaux">
+  <meta property="og:description" content="Left Corner, groupe de reggae et rocksteady de Bordeaux. Concerts en Gironde, musique inspirée du ska jamaïcain. Écoutez nos morceaux et réservez-nous !">
   <meta property="og:image" content="https://left-corner.fr/img/og-image.webp">
   <meta property="og:url" content="https://left-corner.fr">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Left Corner">
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Left Corner - Rocksteady, Reggae & Ska | Bordeaux">
-  <meta name="twitter:description" content="Groupe de rocksteady, reggae et ska de Bordeaux inspiré par les légendes jamaïcaines.">
+  <meta name="twitter:title" content="Left Corner | Groupe Reggae & Rocksteady Bordeaux">
+  <meta name="twitter:description" content="Left Corner, groupe de reggae et rocksteady de Bordeaux. Concerts en Gironde, musique inspirée du ska jamaïcain. Écoutez nos morceaux et réservez-nous !">
   <meta name="twitter:image" content="https://left-corner.fr/img/og-image.webp">
 
   <!-- Canonical -->
@@ -52,14 +53,67 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "name": "Left Corner",
-    "genre": ["Rocksteady", "Reggae", "Ska"],
-    "foundingLocation": { "@type": "Place", "name": "Bordeaux, France" },
-    "url": "https://left-corner.fr",
-    "sameAs": [
-      "https://www.instagram.com/leftcorner_music/",
-      "https://soundcloud.com/leftcorner-band"
+    "@graph": [
+      {
+        "@type": "MusicGroup",
+        "name": "Left Corner",
+        "description": "Groupe de reggae et rocksteady de Bordeaux. Concerts en Gironde, musique inspirée du ska jamaïcain.",
+        "genre": ["Rocksteady", "Reggae", "Ska"],
+        "foundingDate": "2021",
+        "foundingLocation": {
+          "@type": "Place",
+          "name": "Bordeaux, France"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Bordeaux"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Gironde"
+          }
+        ],
+        "url": "https://left-corner.fr",
+        "email": "contact@left-corner.fr",
+        "sameAs": [
+          "https://www.instagram.com/leftcorner_music/",
+          "https://soundcloud.com/leftcorner-band",
+          "https://www.facebook.com/LeftCorner33"
+        ]
+      },
+      {
+        "@type": "MusicEvent",
+        "name": "Soirée Ska Punk",
+        "startDate": "2026-03-07",
+        "location": {
+          "@type": "Place",
+          "name": "Salle Simone Veil",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sauveterre de Guyenne",
+            "addressCountry": "FR"
+          }
+        },
+        "performer": [
+          {
+            "@type": "MusicGroup",
+            "name": "SKF"
+          },
+          {
+            "@type": "MusicGroup",
+            "name": "Left Corner"
+          },
+          {
+            "@type": "MusicGroup",
+            "name": "Up Full Sound"
+          },
+          {
+            "@type": "MusicGroup",
+            "name": "Los Tres Puntos"
+          }
+        ]
+      }
     ]
   }
   </script>
